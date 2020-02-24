@@ -10,28 +10,22 @@ import UIKit
 
 
 class ContactsTableViewController: UITableViewController {
-	
+    
+    // --- --- --- --- --- --- --- --- --- --- --- --- --- --- ---
+    // MARK: - View Controller Life Cycle
 	override func viewDidLoad() {
 		super.viewDidLoad()
-		
-		
 	}
-	
-	
-	// MARK: UITableViewDataSource methods
-	
+    
+    // --- --- --- --- --- --- --- --- --- --- --- --- --- --- ---
+	// MARK: Table View DataSource
 	override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-		
-		
-		return 10
+		10
 	}
 	
 	override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
 		let cell = tableView.dequeueReusableCell(withIdentifier: "ContactCell", for: indexPath)
-		
 		cell.textLabel?.text = "HI"
-		
 		return cell
 	}
-
 }
