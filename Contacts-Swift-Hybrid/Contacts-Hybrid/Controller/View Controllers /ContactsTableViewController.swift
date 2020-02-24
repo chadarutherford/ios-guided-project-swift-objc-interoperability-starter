@@ -8,24 +8,29 @@
 
 import UIKit
 
-
 class ContactsTableViewController: UITableViewController {
     
     // --- --- --- --- --- --- --- --- --- --- --- --- --- --- ---
-    // MARK: - View Controller Life Cycle
-	override func viewDidLoad() {
-		super.viewDidLoad()
-	}
+    // MARK: - Properties
+    let contactsController = ContactsController()
     
     // --- --- --- --- --- --- --- --- --- --- --- --- --- --- ---
-	// MARK: Table View DataSource
-	override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-		10
-	}
-	
-	override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-		let cell = tableView.dequeueReusableCell(withIdentifier: "ContactCell", for: indexPath)
-		cell.textLabel?.text = "HI"
-		return cell
-	}
+    // MARK: - View Controller Life Cycle
+    override func viewDidLoad() {
+        super.viewDidLoad()
+    }
+    
+    // --- --- --- --- --- --- --- --- --- --- --- --- --- --- ---
+    // MARK: Table View DataSource
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        contactsController.contacts.count
+    }
+    
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "ContactCell", for: indexPath)
+        let contact = contactsController.contacts[indexPath.row]
+        cell.textLabel?.text = contact.name
+        cell.detailTextLabel?.text = contact.relationship
+        return cell
+    }
 }

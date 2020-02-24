@@ -8,12 +8,13 @@
 
 import Foundation
 
+@objc(LSIContact)
 class Contact: NSObject {
     
-    var name: String
-    var relationship: String?
+    @objc var name: String
+    @objc var relationship: String?
     
-    init(name: String, relationship: String?) {
+    @objc init(name: String, relationship: String?) {
         self.name = name
         self.relationship = relationship
         super.init()
